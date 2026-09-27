@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { CollectibleAssetService } from '../../services/collectible-asset.service';
-import { Transaction } from '../../models/collectible-asset';
+import { CollectibleAssetService } from '../../../services/collectible-asset.service';
+import { Transaction } from '../../../models/collectible-asset';
 
 @Component({
   selector: 'app-transaction-history',

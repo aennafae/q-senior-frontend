@@ -11,7 +11,7 @@
         <div class="metric-content">
           <span class="metric-label">Total Appreciation</span>
           <span class="metric-value">{{ formatCurrency(metrics?.totalAppreciation || 0) }}</span>
-          <span class="metric-subtitle">{{ metrics?.totalAppreciationPercentage.toFixed(1) }}% increase</span>
+          <span class="metric-subtitle">{{ metrics?.totalAppreciationPercentage?.toFixed(1) }}% increase</span>
         </div>
       </div>
 
@@ -21,14 +21,15 @@
         </div>
         <div class="metric-content">
           <span class="metric-label">Annual ROI</span>
-          <span class="metric-value">{{ metrics?.annualROI.toFixed(2) }}%</span>
+          <span class="metric-value">{{ metrics?.annualROI?.toFixed(2) }}%</span>
           <span class="metric-subtitle">Average yearly return</span>
         </div>
       </div>
 
+
       <div class="metric-card">
         <div class="metric-icon">
-          <mat-icon>max_box</mat-icon>
+          <mat-icon>priority_high</mat-icon>
         </div>
         <div class="metric-content">
           <span class="metric-label">Peak Value</span>
@@ -42,7 +43,7 @@
     <div class="chart-section">
       <h3 class="chart-title">Value Trend Over Time (2010 - 2026)</h3>
       <div class="chart-container">
-        <canvas *ngIf="chartConfig" baseChart [data]="chartConfig.data!" 
+        <canvas *ngIf="chartConfig" baseChart [data]="chartConfig.data!"
                 [options]="chartConfig.options!" [type]="chartConfig.type!"></canvas>
       </div>
     </div>
@@ -51,11 +52,11 @@
     <div class="analysis-section">
       <h3 class="analysis-title">Performance Summary</h3>
       <p class="analysis-text">
-        This 1964 Aston Martin DB5 has demonstrated exceptional appreciation over the past 16 years, 
-        with a compound annual growth rate of {{ metrics?.annualROI.toFixed(1) }}%. The asset has grown from 
-        an initial acquisition cost of $1,200,000 to an estimated current value of $4,850,000, 
-        reflecting its status as one of the most iconic and desirable vehicles ever produced. 
-        The consistent upward trajectory indicates strong market demand and limited supply in the 
+        This 1964 Aston Martin DB5 has demonstrated exceptional appreciation over the past 16 years,
+        with a compound annual growth rate of {{ metrics?.annualROI?.toFixed(1) }}%. The asset has grown from
+        an initial acquisition cost of $1,200,000 to an estimated current value of $4,850,000,
+        reflecting its status as one of the most iconic and desirable vehicles ever produced.
+        The consistent upward trajectory indicates strong market demand and limited supply in the
         collectible automotive market.
       </p>
     </div>

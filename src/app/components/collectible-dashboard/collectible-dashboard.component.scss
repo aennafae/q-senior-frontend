@@ -1,35 +1,36 @@
 .collectible-dashboard {
   width: 100%;
   min-height: 100vh;
-  background: #0f1419;
-  color: #e8e8e8;
-}
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow: visible;
 
-.dashboard-footer {
-  background: #0a0d13;
-  border-top: 1px solid #2a2f3e;
-  padding: 3rem 2rem;
+  .dashboard-footer {
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-xl) var(--space-lg);
 
-  .footer-content {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .disclaimer {
-    font-size: 0.875rem;
-    color: #a0a0a0;
-    line-height: 1.6;
-    margin: 0 0 1rem 0;
-
-    strong {
-      color: #d4af37;
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
     }
-  }
 
-  .copyright {
-    font-size: 0.75rem;
-    color: #606060;
-    margin: 0;
-    text-align: center;
+    .disclaimer {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin: 0 0 var(--space-sm) 0;
+
+      strong {
+        color: var(--color-gold);
+      }
+    }
+
+    .copyright {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      margin: 0;
+      text-align: center;
+    }
   }
 }

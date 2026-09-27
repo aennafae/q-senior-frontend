@@ -1,0 +1,67 @@
+// Shared mixins for the Collectible Dashboard (task3)
+// These consume the CSS custom properties (design tokens) defined on the
+// task3 :host, so they work regardless of which component includes them.
+
+/// Base gradient card surface used by metric-card, summary-stat, detail-card
+/// value-card, transaction-card, etc. Pass $lift to control hover translateY.
+@mixin card-surface($lift: -8px, $gradient: true) {
+  @if $gradient {
+    background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-alt) 100%);
+  } @else {
+    background: var(--color-surface);
+  }
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+
+  &:hover {
+    @if $gradient {
+      background: linear-gradient(135deg, var(--color-surface-alt) 0%, var(--color-border) 100%);
+    } @else {
+      background: var(--color-surface-alt);
+    }
+    border-color: var(--color-gold);
+    transform: translateY(#{$lift});
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+/// Large serif section heading ("Asset Details", "Performance Analytics", ...)
+@mixin section-title {
+  font-size: 2.5rem;
+  font-family: var(--font-serif);
+  color: var(--color-text);
+  margin: 0 0 2.5rem 0;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+/// Small uppercase gray label used above values (detail-label, spec-label,
+/// stat-label, metric-label, value-label)
+@mixin eyebrow-label($size: 0.75rem) {
+  font-size: $size;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/// Applies an incremental animation-delay to the first $count children of the
+/// selector this is used within. Replaces repeated @for loops.
+@mixin stagger-animation($count, $base-delay: 0s, $step: 0.08s) {
+  @for $i from 1 through $count {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$base-delay + $i * $step};
+    }
+  }
+}
+
+/// Monospace price/value display (transaction-price, metric-value, stat-value)
+@mixin monospace-value {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-gold);
+}

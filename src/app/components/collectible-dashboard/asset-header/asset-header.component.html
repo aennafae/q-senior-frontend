@@ -1,0 +1,87 @@
+<div class="asset-header" animate.enter="header-enter">
+  <div class="header-wrapper">
+    <!-- Top Section: Carousel & Asset Info -->
+    <div class="header-container">
+      <!-- Hero Image Carousel -->
+      <div class="carousel-section">
+        <div class="carousel-wrapper">
+          <img [src]="currentImage" [alt]="asset?.name" class="hero-image" animate.enter="image-enter" />
+          <button class="carousel-btn prev" (click)="previousImage()" aria-label="Previous image">
+            <mat-icon>chevron_left</mat-icon>
+          </button>
+          <button class="carousel-btn next" (click)="nextImage()" aria-label="Next image">
+            <mat-icon>chevron_right</mat-icon>
+          </button>
+          <div class="image-indicators">
+            <span *ngFor="let img of asset?.images; let i = index"
+                  class="indicator"
+                  [class.active]="i === currentImageIndex"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asset Info Section -->
+      <div class="asset-info-section" animate.enter="info-enter">
+        <div class="asset-header-content">
+          <h1 class="asset-title">{{ asset?.name }}</h1>
+          <p class="asset-subtitle">{{ asset?.year }} {{ asset?.model }}</p>
+
+          <!-- Value Display -->
+          <div class="value-card">
+            <span class="value-label">Current Estimated Value</span>
+            <div class="value-display">
+              <span class="currency">{{ asset?.currency }}</span>
+              <span class="amount">{{ asset?.currentEstimatedValue | number:'1.0-0' }}</span>
+            </div>
+            <div class="value-change positive">
+              <mat-icon>trending_up</mat-icon>
+              <span>+303% appreciation since 2010</span>
+            </div>
+          </div>
+
+          <!-- Quick Specs -->
+          <div class="quick-specs-wrapper" animate.enter="specs-enter">
+            <h4 class="quick-specs-title">Quick Specs</h4>
+            <div class="quick-specs">
+              <div class="quick-spec-item" animate.enter="item-enter">
+                <span class="spec-label">Engine</span>
+                <span class="spec-value">{{ asset?.horsepower }}hp {{ asset?.engine }}</span>
+              </div>
+              <div class="quick-spec-item" animate.enter="item-enter">
+                <span class="spec-label">Mileage</span>
+                <span class="spec-value">{{ asset?.mileage | number }} miles</span>
+              </div>
+              <div class="quick-spec-item" animate.enter="item-enter">
+                <span class="spec-label">Condition</span>
+                <span class="spec-value">{{ asset?.condition }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full Width Technical Specifications Section -->
+    <div class="tech-specs-container" animate.enter="tech-specs-enter">
+      <h3 class="tech-specs-title">Technical Specifications</h3>
+      <div class="specs-grid">
+        <div class="spec-item" animate.enter="item-enter">
+          <span class="spec-label">Engine Type</span>
+          <span class="spec-value">{{ asset?.engine }}</span>
+        </div>
+        <div class="spec-item" animate.enter="item-enter">
+          <span class="spec-label">Horsepower</span>
+          <span class="spec-value">{{ asset?.horsepower }} hp</span>
+        </div>
+        <div class="spec-item" animate.enter="item-enter">
+          <span class="spec-label">Mileage</span>
+          <span class="spec-value">{{ asset?.mileage | number }} miles</span>
+        </div>
+        <div class="spec-item" animate.enter="item-enter">
+          <span class="spec-label">Year Produced</span>
+          <span class="spec-value">{{ asset?.year }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

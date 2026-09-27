@@ -1,11 +1,11 @@
 <div class="asset-details">
   <div class="details-container">
-    <h2 class="section-title">Asset Details</h2>
+    <h2 class="section-title" animate.enter="title-enter">Asset Details</h2>
 
     <!-- Main Details Grid -->
-    <div class="details-grid" [@listAnimation]="asset">
+    <div class="details-grid">
       <!-- Acquisition Information -->
-      <div class="detail-card">
+      <div class="detail-card" animate.enter="card-enter">
         <div class="card-icon">
           <mat-icon>calendar_today</mat-icon>
         </div>
@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <div class="detail-card">
+      <div class="detail-card" animate.enter="card-enter">
         <div class="card-icon">
           <mat-icon>attach_money</mat-icon>
         </div>
@@ -26,7 +26,7 @@
       </div>
 
       <!-- Identification -->
-      <div class="detail-card">
+      <div class="detail-card" animate.enter="card-enter">
         <div class="card-icon">
           <mat-icon>assignment</mat-icon>
         </div>
@@ -37,7 +37,7 @@
       </div>
 
       <!-- Physical Characteristics -->
-      <div class="detail-card">
+      <div class="detail-card" animate.enter="card-enter">
         <div class="card-icon">
           <mat-icon>palette</mat-icon>
         </div>
@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div class="detail-card">
+      <div class="detail-card" animate.enter="card-enter">
         <div class="card-icon">
           <mat-icon>chair</mat-icon>
         </div>
@@ -58,7 +58,7 @@
       </div>
 
       <!-- Condition -->
-      <div class="detail-card">
+      <div class="detail-card" animate.enter="card-enter">
         <div class="card-icon">
           <mat-icon>verified</mat-icon>
         </div>
@@ -72,41 +72,15 @@
     </div>
 
     <!-- Provenance Section -->
-    <div class="provenance-section">
+    <div class="provenance-section" animate.enter="section-enter">
       <h3 class="subsection-title">
         <mat-icon>history</mat-icon>
         Provenance & Ownership History
       </h3>
       <div class="provenance-list">
-        <div class="provenance-item" *ngFor="let item of asset?.provenance">
+        <div class="provenance-item" *ngFor="let item of asset?.provenance" animate.enter="item-enter">
           <span class="provenance-dot"></span>
           <span class="provenance-text">{{ item }}</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Technical Specifications -->
-    <div class="specs-section">
-      <h3 class="subsection-title">
-        <mat-icon>settings</mat-icon>
-        Technical Specifications
-      </h3>
-      <div class="specs-grid">
-        <div class="spec-item">
-          <span class="spec-label">Engine Type</span>
-          <span class="spec-value">{{ asset?.engine }}</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-label">Horsepower</span>
-          <span class="spec-value">{{ asset?.horsepower }} hp</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-label">Mileage</span>
-          <span class="spec-value">{{ asset?.mileage | number }} miles</span>
-        </div>
-        <div class="spec-item">
-          <span class="spec-label">Year Produced</span>
-          <span class="spec-value">{{ asset?.year }}</span>
         </div>
       </div>
     </div>

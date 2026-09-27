@@ -3,6 +3,22 @@
     <h2 class="section-title">Transaction History</h2>
     <p class="section-subtitle">Recent sales, auctions, and appraisals of comparable assets and this vehicle</p>
 
+    <!-- Stats Summary -->
+    <div class="summary-section">
+      <div class="summary-stat">
+        <span class="stat-label">Total Transactions</span>
+        <span class="stat-value">{{ transactions.length }}</span>
+      </div>
+      <div class="summary-stat">
+        <span class="stat-label">Highest Recorded Price</span>
+        <span class="stat-value">{{ formatCurrency(transactions[0]?.price || 0) }}</span>
+      </div>
+      <div class="summary-stat">
+        <span class="stat-label">Last Appraisal</span>
+        <span class="stat-value">{{ transactions.length > 0 ? formatDate(transactions[0].date) : formatDate() }}</span>
+      </div>
+    </div>
+
     <!-- Timeline View -->
     <div class="timeline">
       <div class="timeline-item" *ngFor="let transaction of transactions; let isLast = last">
@@ -35,20 +51,6 @@
       </div>
     </div>
 
-    <!-- Stats Summary -->
-    <div class="summary-section">
-      <div class="summary-stat">
-        <span class="stat-label">Total Transactions</span>
-        <span class="stat-value">{{ transactions.length }}</span>
-      </div>
-      <div class="summary-stat">
-        <span class="stat-label">Highest Recorded Price</span>
-        <span class="stat-value">{{ formatCurrency(transactions[0]?.price || 0) }}</span>
-      </div>
-      <div class="summary-stat">
-        <span class="stat-label">Last Appraisal</span>
-        <span class="stat-value">{{ transactions.length > 0 ? formatDate(transactions[0].date) : formatDate() }}</span>
-      </div>
-    </div>
+
   </div>
 </div>

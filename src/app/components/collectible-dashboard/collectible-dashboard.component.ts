@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AssetHeaderComponent } from './asset-header.component';
-import { AssetDetailsComponent } from './asset-details.component';
-import { PerformanceAnalyticsComponent } from './performance-analytics.component';
-import { TransactionHistoryComponent } from './transaction-history.component';
+import {TransactionHistoryComponent} from './transaction-history/transaction-history.component';
+import {AssetDetailsComponent} from './asset-details/asset-details.component';
+import {PerformanceAnalyticsComponent} from './performance-analytics/performance-analytics.component';
+import {AssetHeaderComponent} from './asset-header/asset-header.component';
+import {QuickNavComponent} from './quick-nav/quick-nav.component';
 
 @Component({
   selector: 'app-collectible-dashboard',
@@ -11,9 +12,14 @@ import { TransactionHistoryComponent } from './transaction-history.component';
   imports: [
     CommonModule,
     AssetHeaderComponent,
+    QuickNavComponent,
     AssetDetailsComponent,
     PerformanceAnalyticsComponent,
-    TransactionHistoryComponent
+    TransactionHistoryComponent,
+    TransactionHistoryComponent,
+    AssetDetailsComponent,
+    PerformanceAnalyticsComponent,
+    AssetHeaderComponent
   ],
   templateUrl: './collectible-dashboard.component.html',
   styleUrls: ['./collectible-dashboard.component.scss']

@@ -1,0 +1,106 @@
+/* Task 3: Collectible Dashboard Styles */
+@use 'assets/styles/animations' as *;
+
+:host {
+  /* ---- Design Tokens (Collectible Dashboard) ---- */
+  /* Colors */
+  --color-bg: #0f1419;
+  --color-bg-alt: #0a0d13;
+  --color-surface: #1a1f2e;
+  --color-surface-alt: #252a39;
+  --color-border: #2a2f3e;
+  --color-gold: #d4af37;
+  --color-gold-bright: #ffd700;
+  --color-text: #e8e8e8;
+  --color-text-muted: #a0a0a0;
+  --color-text-dim: #606060;
+  --color-success: #4ade80;
+  --color-warning: #facc15;
+  --color-info: #60a5fa;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 20px;
+
+  /* Typography */
+  --font-serif: 'Georgia', serif;
+  --font-mono: 'Courier New', monospace;
+
+  /* Motion */
+  --transition-fast: 0.3s ease;
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Shadows */
+  --shadow-hover: 0 16px 40px rgba(212, 175, 55, 0.15);
+  --shadow-card: 0 12px 24px rgba(212, 175, 55, 0.1);
+  --shadow-deep: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+  display: block;
+  padding: 0;
+  overflow: auto;
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
+/* Dark Theme for Collectible Dashboard */
+:host ::ng-deep {
+  /* Scrollbar Styling for Task3 */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gold);
+    border-radius: 5px;
+
+    &:hover {
+      background: var(--color-gold-bright);
+    }
+  }
+
+  /* Typography Overrides */
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 300;
+  }
+
+  /* Links in Task3 */
+  a {
+    color: var(--color-gold);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+
+    &:hover {
+      color: var(--color-gold-bright);
+    }
+  }
+
+  /* Buttons in Task3 */
+  button {
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  /* Material Customizations for Task3 */
+  .mat-mdc-button,
+  .mat-mdc-raised-button {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}

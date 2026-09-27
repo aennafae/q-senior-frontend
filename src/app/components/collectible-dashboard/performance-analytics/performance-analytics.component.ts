@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { BaseChartDirective } from 'ng2-charts';
-import { Chart, ChartConfiguration, ChartOptions } from 'chart.js';
-import { CollectibleAssetService } from '../../services/collectible-asset.service';
-import { ValueHistory, PerformanceMetrics } from '../../models/collectible-asset';
+import { Chart, ChartConfiguration, ChartOptions, registerables } from 'chart.js';
+import { CollectibleAssetService } from '../../../services/collectible-asset.service';
+import { ValueHistory, PerformanceMetrics } from '../../../models/collectible-asset';
+
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-performance-analytics',

@@ -28,9 +28,9 @@ export class CollectibleAssetService {
       'Recently certified authentic by Aston Martin Heritage Trust'
     ],
     images: [
-      'https://images.unsplash.com/photo-1567818735868-e71b99932e29?w=1200&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1552820728-8ac41f1ce891?w=1200&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1609708536965-52519a63bf55?w=1200&h=600&fit=crop'
+      '/aston-martin-db5/1965-Aston-Martin-DB5-Vantage_2.webp',
+      '/aston-martin-db5/dave-robinson-SrhczLwIMV0-unsplash.jpg',
+      '/aston-martin-db5/dave-robinson-okSrkTRalds-unsplash.jpg'
     ]
   };
 
@@ -109,11 +109,11 @@ export class CollectibleAssetService {
     const current = this.valueHistory[this.valueHistory.length - 1].estimatedValue;
     const totalAppreciation = current - acquisition;
     const totalAppreciationPercentage = (totalAppreciation / acquisition) * 100;
-    
-    const yearsSinceAcquisition = 
-      (this.valueHistory[this.valueHistory.length - 1].date.getTime() - 
+
+    const yearsSinceAcquisition =
+      (this.valueHistory[this.valueHistory.length - 1].date.getTime() -
        this.valueHistory[0].date.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
-    
+
     const annualROI = (Math.pow(current / acquisition, 1 / yearsSinceAcquisition) - 1) * 100;
 
     const peakValueEntry = this.valueHistory.reduce((prev, current) =>
