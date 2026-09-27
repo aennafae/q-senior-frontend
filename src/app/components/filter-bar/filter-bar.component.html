@@ -1,0 +1,68 @@
+<div class="filter-bar">
+  @if (formGroup()) {
+    <form [formGroup]="formGroup()!" class="filter-form">
+      <!-- Text Input Fields -->
+      @for (fieldKey of textFields(); track fieldKey) {
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>{{ getFieldConfig(fieldKey)?.label }}</mat-label>
+          <input
+            matInput
+            [formControlName]="fieldKey"
+            [placeholder]="getTextFieldPlaceholder(fieldKey)"
+          />
+        </mat-form-field>
+      }
+
+      <!-- Multi-Select Fields -->
+      @for (fieldKey of selectFields(); track fieldKey) {
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>{{ getFieldConfig(fieldKey)?.label }}</mat-label>
+          <mat-select
+            [formControlName]="fieldKey"
+            multiple
+            [placeholder]="getSelectFieldPlaceholder(fieldKey)"
+          >
+            @for (option of getSelectOptions(fieldKey); track option.value) {
+              <mat-option [value]="option.value">
+                {{ option.label }}
+              </mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      }
+
+      <!-- Checkbox Fields -->
+      @for (fieldKey of checkboxFields(); track fieldKey) {
+        <div class="checkbox-field">
+          <mat-checkbox [formControlName]="fieldKey">
+            {{ getFieldConfig(fieldKey)?.label }}
+          </mat-checkbox>
+        </div>
+      }
+
+      <!-- Clear Filters Button -->
+      <button
+        mat-raised-button
+        color="accent"
+        type="button"
+        (click)="onClearFilters()"
+        class="clear-button"
+      >
+        <mat-icon>clear</mat-icon>
+        Clear Filters
+      </button>
+    </form>
+  }
+
+  <!-- Pagination -->
+  @if (paginationField()) {
+    <mat-paginator
+      [length]="totalItems()"
+      [pageSize]="getPageSize()"
+      [pageSizeOptions]="getPageSizeOptions()"
+      [pageIndex]="getPageIndex()"
+      (page)="onPageChange($event)"
+      showFirstLastButtons
+    ></mat-paginator>
+  }
+</div>

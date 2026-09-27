@@ -1,7 +1,10 @@
-<!-- Feel free to replace this placeholder with your filterbar -->
-<fieldset class="filter-bar-placeholder">
-  <legend>Filter bar should go here</legend>
-</fieldset>
+@if (filterConfig; as config) {
+  <app-filter-bar
+    [config]="config"
+    [totalItems]="totalItems"
+    (filterChange)="onFilterChange($event)"
+  ></app-filter-bar>
+}
 
 <div class="table-wrapper">
   @if (isLoading) {
