@@ -29,7 +29,7 @@ function createRows(): Row[] {
 export class Task2Component {
   rows = signal<Row[]>(createRows())
 
-  selectionModel = new SelectionModel<Row>(true, undefined, undefined, (o1, o2) => o1.id === o2.id)
+  selectionModel = new SelectionModel<number>(true)
   trackBy: TrackByFunction<Row> | undefined = (index, item) => item.id;
 
   recreateData() {
@@ -37,10 +37,10 @@ export class Task2Component {
   }
 
   selectAll() {
-    this.selectionModel.select(...this.rows())
+    this.selectionModel.select(...this.rows().map(row => row.id))
   }
 
   deselectAll() {
-    this.selectionModel.deselect(...this.rows())
+    this.selectionModel.deselect(...this.rows().map(row => row.id))
   }
 }
