@@ -1,0 +1,54 @@
+<div class="transaction-history">
+  <div class="history-container">
+    <h2 class="section-title">Transaction History</h2>
+    <p class="section-subtitle">Recent sales, auctions, and appraisals of comparable assets and this vehicle</p>
+
+    <!-- Timeline View -->
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let transaction of transactions; let isLast = last">
+        <div class="timeline-marker" [class]="getEventColor(transaction.eventType)">
+          <mat-icon>{{ getEventIcon(transaction.eventType) }}</mat-icon>
+        </div>
+
+        <div class="transaction-card" [class]="getEventColor(transaction.eventType)">
+          <div class="transaction-header">
+            <div class="transaction-info">
+              <span class="event-type">{{ transaction.eventType }}</span>
+              <span class="event-date">{{ formatDate(transaction.date) }}</span>
+            </div>
+            <span class="transaction-price">{{ formatCurrency(transaction.price) }}</span>
+          </div>
+
+          <div class="transaction-details">
+            <div class="detail-row">
+              <span class="detail-label">Location</span>
+              <span class="detail-value">{{ transaction.location }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Notes</span>
+              <span class="detail-value">{{ transaction.notes }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-connector" *ngIf="!isLast"></div>
+      </div>
+    </div>
+
+    <!-- Stats Summary -->
+    <div class="summary-section">
+      <div class="summary-stat">
+        <span class="stat-label">Total Transactions</span>
+        <span class="stat-value">{{ transactions.length }}</span>
+      </div>
+      <div class="summary-stat">
+        <span class="stat-label">Highest Recorded Price</span>
+        <span class="stat-value">{{ formatCurrency(transactions[0]?.price || 0) }}</span>
+      </div>
+      <div class="summary-stat">
+        <span class="stat-label">Last Appraisal</span>
+        <span class="stat-value">{{ transactions.length > 0 ? formatDate(transactions[0].date) : formatDate() }}</span>
+      </div>
+    </div>
+  </div>
+</div>

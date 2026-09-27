@@ -1,12 +1,71 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+}
 
 html,
 body {
   height: 100%;
-}
-body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding: 0;
+  background: #0f1419;
+  color: #e8e8e8;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1f2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 5px;
+
+  &:hover {
+    background: #ffd700;
+  }
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 300;
+}
+
+/* Links */
+a {
+  color: #d4af37;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #ffd700;
+  }
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Material Customizations */
+.mat-mdc-button,
+.mat-mdc-raised-button {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 app-task1,

@@ -1,0 +1,114 @@
+<div class="asset-details">
+  <div class="details-container">
+    <h2 class="section-title">Asset Details</h2>
+
+    <!-- Main Details Grid -->
+    <div class="details-grid" [@listAnimation]="asset">
+      <!-- Acquisition Information -->
+      <div class="detail-card">
+        <div class="card-icon">
+          <mat-icon>calendar_today</mat-icon>
+        </div>
+        <div class="card-content">
+          <span class="detail-label">Acquisition Date</span>
+          <span class="detail-value">{{ formatDate(asset?.acquisitionDate) }}</span>
+        </div>
+      </div>
+
+      <div class="detail-card">
+        <div class="card-icon">
+          <mat-icon>attach_money</mat-icon>
+        </div>
+        <div class="card-content">
+          <span class="detail-label">Acquisition Cost</span>
+          <span class="detail-value">{{ asset?.currency }} {{ asset?.acquisitionCost | number:'1.0-0' }}</span>
+        </div>
+      </div>
+
+      <!-- Identification -->
+      <div class="detail-card">
+        <div class="card-icon">
+          <mat-icon>assignment</mat-icon>
+        </div>
+        <div class="card-content">
+          <span class="detail-label">VIN / Serial Number</span>
+          <span class="detail-value">{{ asset?.vin }}</span>
+        </div>
+      </div>
+
+      <!-- Physical Characteristics -->
+      <div class="detail-card">
+        <div class="card-icon">
+          <mat-icon>palette</mat-icon>
+        </div>
+        <div class="card-content">
+          <span class="detail-label">Exterior Color</span>
+          <span class="detail-value">{{ asset?.color }}</span>
+        </div>
+      </div>
+
+      <div class="detail-card">
+        <div class="card-icon">
+          <mat-icon>chair</mat-icon>
+        </div>
+        <div class="card-content">
+          <span class="detail-label">Interior</span>
+          <span class="detail-value">{{ asset?.interior }}</span>
+        </div>
+      </div>
+
+      <!-- Condition -->
+      <div class="detail-card">
+        <div class="card-icon">
+          <mat-icon>verified</mat-icon>
+        </div>
+        <div class="card-content">
+          <span class="detail-label">Condition</span>
+          <span class="detail-value condition-badge" [class]="asset?.condition?.toLowerCase()">
+            {{ asset?.condition }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Provenance Section -->
+    <div class="provenance-section">
+      <h3 class="subsection-title">
+        <mat-icon>history</mat-icon>
+        Provenance & Ownership History
+      </h3>
+      <div class="provenance-list">
+        <div class="provenance-item" *ngFor="let item of asset?.provenance">
+          <span class="provenance-dot"></span>
+          <span class="provenance-text">{{ item }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Specifications -->
+    <div class="specs-section">
+      <h3 class="subsection-title">
+        <mat-icon>settings</mat-icon>
+        Technical Specifications
+      </h3>
+      <div class="specs-grid">
+        <div class="spec-item">
+          <span class="spec-label">Engine Type</span>
+          <span class="spec-value">{{ asset?.engine }}</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Horsepower</span>
+          <span class="spec-value">{{ asset?.horsepower }} hp</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Mileage</span>
+          <span class="spec-value">{{ asset?.mileage | number }} miles</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Year Produced</span>
+          <span class="spec-value">{{ asset?.year }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
